@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Quiz - Section{% endblock title %}
+
+{% block content %}
+<div class="container">
+<h3>Select a section for taking {{exam}} exam</h3>
+<div class="list-group">
+    {% for section in sections %}
+    
+        <b>{{section}}</b>
+        <form action="/questions/{{exam}}/{{section}}">
+            <input type="hidden" name="examname" value="{{section}}">
+            <button type="submit" class="btn btn-dark mt-1">Choose this section!</button>
+        </form>
+    
+    {% endfor %}
+  </div>
+
+
+
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Quiz - Questions{% endblock title %}
+
+{% block content %}
+<div class="container">
+<h3>Questions for {{section}} section of {{exam}} exam are given below:</h3>
+<div class="list-group m-4">
+    <form action="" method="post"> {% csrf_token %}
+    {% for question in questions %}
+    
+        <b>{{question.text}}</b>
+        <div class="input-group m-2 p-1">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="radio" aria-label="Radio button for following text input" name="{{ forloop.counter0 }}" value="{{question.opta}}">
+              </div>
+              {{question.opta}}
+            </div>
+        </div>
+        <div class="input-group m-2 p-1">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="radio" aria-label="Radio button for following text input" name="{{ forloop.counter0 }}" value="{{question.optb}}">
+              </div>
+              {{question.optb}}
+            </div>
+        </div>
+        <div class="input-group m-2 p-1">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="radio" aria-label="Radio button for following text input" name="{{ forloop.counter0 }}" value="{{question.optc}}">
+              </div>
+              {{question.optc}}
+            </div>
+        </div>
+        <div class="input-group m-2 p-1">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="radio" aria-label="Radio button for following text input" name="{{ forloop.counter0 }}" value="{{question.optd}}">
+              </div>
+              {{question.optd}}
+            </div>
+        </div>
+          
+          {% endfor %}
+          <button type="submit" class="btn btn-dark mt-1">Submit the quiz!</button>
+    </form>
+  </div>
+
+
+
+</div>
+
+
+
+{% endblock content %}

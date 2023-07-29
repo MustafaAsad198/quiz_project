@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Quiz - Quiz logs{% endblock title %}
+
+{% block content %}
+<div class="container">
+<h3>Your all quizzes and results</h3>
+<div class="list-group">
+    {% for quiz in quizzes %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Score : {{quiz.score}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Exam : {{quiz.exam}}</h6>
+          <p class="card-text">Section : {{quiz.section}}</p>
+        </div>
+      </div>
+        
+    
+    {% endfor %}
+  </div>
+
+
+
+</div>
+
+
+
+{% endblock content %}
